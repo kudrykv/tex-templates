@@ -1,0 +1,37 @@
+%! suppress = MissingImport
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+\parindent=0pt
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\newlength{\myThicknessDefault}
+\newlength{\myThicknessThick}
+\newlength{\myColSepWidth}
+
+\setlength{\myThicknessDefault}{.4pt}
+\setlength{\myThicknessThick}{1.2pt}
+\setlength{\myColSepWidth}{5mm}
+
+\newcommand{\myTwoColWidth}{\dimexpr.5\linewidth-.5\myColSepWidth}
+
+\newcommand{\myOneThirdColWidth}{\dimexpr.3333\linewidth-.6667\myColSepWidth}
+\newcommand{\myTwoThirdColWidth}{\dimexpr.6667\linewidth-.3333\myColSepWidth}
+
+\newcommand{\myOneFifthColWidth}{\dimexpr.2\linewidth-.8\myColSepWidth}
+\newcommand{\myTwoFifthColWidth}{\dimexpr.4\linewidth-.6\myColSepWidth}
+\newcommand{\myThreeFifthColWidth}{\dimexpr.6\linewidth-.4\myColSepWidth}
+\newcommand{\myFourFifthColWidth}{\dimexpr.8\linewidth-.2\myColSepWidth}
+
+\newcommand{\myMinLineHeight}[1]{\parbox{0pt}{\vskip#1}}
+\newcommand{\myLineDefault}{\hrule width \linewidth height \myThicknessDefault}
+\newcommand{\myLineThick}{\hrule width \linewidth height \myThicknessThick}
+
+\newcommand{\myLineDefaultInColor}[1]{\textcolor{#1}{\myLineDefault}}
+
+\newcommand{\myLineBoxDefault}[1]{\myMinLineHeight{#1}\myLineDefault}
+\newcommand{\myLineBoxDefaultColor}[2]{\textcolor{#1}{\myLineBoxDefault{#2}}}
+\newcommand{\myLineBoxThick}[1]{\myMinLineHeight{#1}\myLineThick}
+
+\newcommand{\myUnderline}[1]{#1\vskip1mm\myLineThick\par}

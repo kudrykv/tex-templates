@@ -1,0 +1,75 @@
+% Look
+%
+% ─────────────────────  ───────
+%                        MTWTFSS
+%
+% Attendees  Notes
+% ━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━
+% _________  ___________________
+% _________  ___________________
+% _________  ___________________
+%            ___________________
+% Agenda     ___________________
+% ━━━━━━━━━  ___________________
+% _________  ___________________
+% _________  ___________________
+% _________  ___________________
+%
+% Agenda
+% ━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━
+% ----+-------------------------
+% ----+-------------------------
+% ----+-------------------------
+
+%! suppress = MissingImport
+\documentclass[9pt]{extarticle}
+
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{color,colortbl}
+\usepackage{expl3}
+\usepackage{xcolor}
+
+\geometry{paperwidth=15.6cm, paperheight=20.9cm}
+\geometry{
+    top=1.2cm,
+    bottom=0.7cm,
+    left=0.5cm,
+    right=0.5cm,
+    marginparwidth=1cm,
+    marginparsep=0cm
+}
+
+\include{macro}
+
+\begin{document}
+    \renewcommand{\arraystretch}{2}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabularx}{\linewidth}{Y@{}l@{}*{7}{r}@{}}
+        & \parbox{5mm}{\textcolor{white}{.}} & \multicolumn{7}{@{}l}{Date:} \\ \cline{1-1} \cline{3-9}
+        & & M & T & W & T & F & S & S \\
+    \end{tabularx}
+
+    \begin{minipage}[t]{\myOneThirdColWidth}
+        \myUnderline{Attendees}
+        \Repeat{6}{\myLineBoxDefaultColor{gray}{5mm}}
+        \vskip6.1mm
+        \myUnderline{Agenda}
+        \Repeat{17}{\myLineBoxDefaultColor{gray}{5mm}}
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\myTwoThirdColWidth}
+        \myUnderline{Notes}
+        \Repeat{25}{\myLineBoxDefaultColor{gray}{5mm}}
+    \end{minipage}
+    \vskip5mm
+
+    \myUnderline{Action Items}
+    \arrayrulecolor{gray}%
+    \renewcommand{\arraystretch}{1}%
+    \setlength{\tabcolsep}{0pt}%
+    \begin{tabularx}{\linewidth}{l|l}
+        \Repeat{6}{\parbox{\myOneFifthColWidth}{\vskip5mm\textcolor{white}{.}} &  \\ \hline}
+    \end{tabularx}
+\end{document}
