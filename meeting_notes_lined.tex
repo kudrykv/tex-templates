@@ -29,32 +29,18 @@
 \include{macro}
 
 \begin{document}
-    \renewcommand{\arraystretch}{2}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabularx}{\linewidth}{Y@{}l@{}*{7}{r}@{}}
-        & \parbox{5mm}{\textcolor{white}{.}} & \multicolumn{7}{@{}l}{Date:} \\ \cline{1-1} \cline{3-9}
-        & & M & T & W & T & F & S & S \\
-    \end{tabularx}
+    \myHeader
 
-    \begin{minipage}[t]{\myOneThirdColWidth}
-        \myUnderline{Attendees}
-        \Repeat{6}{\myLineBoxDefaultColor{gray}{5mm}}
+    \myOneThirdColumn{
+        \myNamedLinedBlock{Attendees}{6}
         \vskip6.1mm
-        \myUnderline{Agenda}
-        \Repeat{17}{\myLineBoxDefaultColor{gray}{5mm}}
-    \end{minipage}%
+        \myNamedLinedBlock{Agenda}{17}
+    }
     \hfill%
-    \begin{minipage}[t]{\myTwoThirdColWidth}
-        \myUnderline{Notes}
-        \Repeat{25}{\myLineBoxDefaultColor{gray}{5mm}}
-    \end{minipage}
+    \myTwoThirdColumn{
+        \myNamedLinedBlock{Notes}{25}
+    }
     \vskip5mm
 
-    \myUnderline{Action Items}
-    \arrayrulecolor{gray}%
-    \renewcommand{\arraystretch}{1}%
-    \setlength{\tabcolsep}{0pt}%
-    \begin{tabularx}{\linewidth}{l|l}
-        \Repeat{6}{\parbox{\myOneFifthColWidth}{\vskip5mm\textcolor{white}{.}} &  \\ \hline}
-    \end{tabularx}
+    \myLinedActionItems{6}
 \end{document}

@@ -35,3 +35,28 @@
 \newcommand{\myLineBoxThick}[1]{\myMinLineHeight{#1}\myLineThick}
 
 \newcommand{\myUnderline}[1]{#1\vskip1mm\myLineThick\par}
+
+\newcommand{\myDotGrid}[2]{\vskip5mm\par\hspace{0.2mm}\vbox to 0mm{}\leavevmode\multido{\dC=0mm+5mm}{#1}{\multido{\dR=0mm+5mm}{#2}{\put(\dR,\dC){\circle*{0.1}}}}}
+
+%--------------------------------------------------------------------------
+% Large snippets
+
+\newcommand{\myHeader}{\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{Y@{}l@{}*{7}{r}@{}}
+    & \parbox{5mm}{\textcolor{white}{.}} & \multicolumn{7}{@{}l}{Date:} \\ \cline{1-1} \cline{3-9}
+    & & M & T & W & T & F & S & S \\
+\end{tabularx}}
+
+\newcommand{\myOneThirdColumn}[1]{\begin{minipage}[t]{\myOneThirdColWidth}#1\end{minipage}}
+\newcommand{\myTwoThirdColumn}[1]{\begin{minipage}[t]{\myTwoThirdColWidth}#1\end{minipage}}
+
+\newcommand{\myNamedLinedBlock}[2]{\myUnderline{#1}\Repeat{#2}{\myLineBoxDefaultColor{gray}{5mm}}}
+
+\newcommand{\myLinedActionItems}[1]{\myUnderline{Action Items}
+\arrayrulecolor{gray}%
+\renewcommand{\arraystretch}{1}%
+\setlength{\tabcolsep}{0pt}%
+    \begin{tabularx}{\linewidth}{l|l}
+        \Repeat{#1}{\hspace{\myOneFifthColWidth}\vbox to 0mm{}\myMinLineHeight{5mm} &  \\ \hline}
+    \end{tabularx}}
