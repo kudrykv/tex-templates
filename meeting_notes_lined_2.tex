@@ -7,35 +7,16 @@
 \include{macro}
 
 \begin{document}
-{\renewcommand{\arraystretch}{2}
-\setlength{\tabcolsep}{4pt}
-    \begin{tabularx}{\linewidth}{Y@{}l@{}*{7}{r}@{}}
-        & \parbox{5mm}{\textcolor{white}{.}} & \multicolumn{7}{@{}l}{Date:} \\ \cline{1-1} \cline{3-9}
-        & & M & T & W & T & F & S & S \\
-    \end{tabularx}}
+    \myMeetingNotesHeader
 
-{\myUnderline{Attendees}
-\arrayrulecolor{gray}%
-\renewcommand{\arraystretch}{1}%
-\setlength{\tabcolsep}{0pt}%
-    \begin{tabularx}{\linewidth}{Y|Y}
-        \Repeat{3}{ \myMinLineHeight{5mm} & \\ \hline}
-    \end{tabularx}}
+    \myNamedTableTwoHalf{Attendees}{3}
 
     \vskip5mm
-    \myUnderline{Agenda}
-    \Repeat{3}{\myLineBoxDefaultColor{gray}{5mm}}
+    \myNamedLinedBlock{Agenda}{3}
 
     \vskip5mm
-    \myUnderline{Notes}
-    \Repeat{15}{\myLineBoxDefaultColor{gray}{5mm}}
+    \myNamedLinedBlock{Notes}{16}
 
     \vskip5mm
-    \myUnderline{Action Items}
-    \arrayrulecolor{gray}%
-    \renewcommand{\arraystretch}{1}%
-    \setlength{\tabcolsep}{0pt}%
-    \begin{tabularx}{\linewidth}{l|l}
-        \Repeat{6}{\parbox{\myOneFifthColWidth}{\vskip5mm\textcolor{white}{.}} &  \\ \hline}
-    \end{tabularx}
+    \myLinedActionItems{6}
 \end{document}

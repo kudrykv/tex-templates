@@ -60,3 +60,11 @@
     \begin{tabularx}{\linewidth}{l|l}
         \Repeat{#1}{\hspace{\myOneFifthColWidth}\vbox to 0mm{}\myMinLineHeight{5mm} &  \\ \hline}
     \end{tabularx}}
+
+\newcommand{\myNamedTableTwoHalf}[2]{\myUnderline{#1}
+\arrayrulecolor{gray}%
+\renewcommand{\arraystretch}{1}%
+\setlength{\tabcolsep}{0pt}%
+    \begin{tabularx}{\linewidth}{Y|Y}
+        \Repeat{#2}{ \myMinLineHeight{5mm} & \\ \hline}
+    \end{tabularx}}
